@@ -1,0 +1,25 @@
+.head-contents {
+  display: table;
+}
+.head-contents .h1 {
+  display: table-cell;
+}
+.head-contents .myinfo {
+  display: table-cell;
+}
+.head-contents .myinfo li {
+  float: left;
+}
+.head-contents .myinfo li::after {
+  content: none;
+  display: block;
+  clear: both;
+}
+footer li {
+  float: left;
+}
+footer li::after {
+  content: none;
+  display: block;
+  clear: both;
+}
