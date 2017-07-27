@@ -17,7 +17,7 @@
       @if (Auth::check())
         <div class="user_nav grid-6">
           <a href="/logout">ログアウト</a>
-          <a class="post" href="/messages/create">投稿する</a>
+          <a href="/messages/create" class="post">投稿する</a>
         </div>
       @else
         <div class="grid-6">

@@ -23,3 +23,6 @@ footer li::after {
   display: block;
   clear: both;
 }
+button {
+  background-color: #fff;
+}

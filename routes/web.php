@@ -18,6 +18,8 @@ Route::get('/messages/create', 'MessagesController@create');
 Route::post('/messages', 'MessagesController@store');
 
 Route::auth();
+// Auth::routes();
+Route::get('logout', 'Auth\LoginController@logout')->name('logout');
 
 // Route::get('/users', 'UsersController@index');
 // Route::get('/users/create', 'UsersController@create');
@@ -25,4 +27,4 @@ Route::auth();
 //
 // Route::get('/teams', 'TeamsController@index');
 
-// Auth::routes();
+Route::get('/home', 'HomeController@index')->name('home');

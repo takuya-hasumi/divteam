@@ -1,43 +1,68 @@
 @extends('layout')
 
 @section('content')
-<div class="bgcolor-white pt1em pb1em" id="contents">  <div id="main_cnt_wrapper">
-  <div id="yjContentsBody">
-    <div class="yjContainer">
-      <div class="form_box">
-        <h2>mooovi <span>ログイン</span></h2>
-        {{ Form::open() }}
-          @if (count($errors) > 0)
-            <div id="error_explanation">
-              <ul>
-                @foreach ($errors->all() as $error)
-                  <li>{{ $error }}</li>
-                @endforeach
-              </ul>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="panel panel-default">
+                <div class="panel-heading">Login</div>
+                <div class="panel-body">
+                    <form class="form-horizontal" method="POST" action="{{ route('login') }}">
+                        {{ csrf_field() }}
+
+                        <div class="form-group{{ $errors->has('email') ? ' has-error' : '' }}">
+                            <label for="email" class="col-md-4 control-label">E-Mail Address</label>
+
+                            <div class="col-md-6">
+                                <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+
+                                @if ($errors->has('email'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('email') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group{{ $errors->has('password') ? ' has-error' : '' }}">
+                            <label for="password" class="col-md-4 control-label">Password</label>
+
+                            <div class="col-md-6">
+                                <input id="password" type="password" class="form-control" name="password" required>
+
+                                @if ($errors->has('password'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('password') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-6 col-md-offset-4">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="remember" {{ old('remember') ? 'checked' : '' }}> Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-8 col-md-offset-4">
+                                <button type="submit" class="btn btn-primary">
+                                    Login
+                                </button>
+
+                                <a class="btn btn-link" href="{{ route('password.request') }}">
+                                    Forgot Your Password?
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
             </div>
-          @endif
-          <div>
-            {{ Form::email('email', '', ['placeholder' => 'メールアドレスを入力']) }}
-          </div>
-          <div>
-            {{ Form::password('password', ['placeholder' => 'パスワードを入力']) }}
-          </div>
-          <div class="row">
-            <div class="col-xs-6">
-              {{ Form::checkbox('remember_me', '') }}
-              {{ Form::label('', 'パスワードを記憶')}}
-            </div>
-            <div class="col-xs-6">パスワードを忘れましたか？</div>
-            <div class="submit">{{ Form::submit('ログイン', ['class' => 'btn btn--block']) }}</div>
-          </div>
-        {{ Form::close() }}
-        <div class="more_link_box">
-        <strong>まだアカウントを持っていませんか？</strong>
-        <a href="/register">Sign Up</a>
-        <strong>パスワードをお忘れですか？</strong>
-        <a href="/password/reset">Forgot your password?</a>
-      </div>
+        </div>
     </div>
-  </div>
 </div>
 @endsection
