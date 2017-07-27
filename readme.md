@@ -49,3 +49,8 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+
+
+## User Comment
+This is SNS service in company "DivTeam"
+DivTeam is a praising serice of behavioring mission, behavioral guidelines and proactive behavior.
