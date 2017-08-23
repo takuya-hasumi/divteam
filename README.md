@@ -1,2 +1,0 @@
-# divteam
-laravel application
