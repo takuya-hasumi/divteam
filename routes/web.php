@@ -13,18 +13,19 @@
 
 Route::get('/', 'MessagesController@index');
 
-Route::get('/messages', 'MessagesController@index');
-Route::get('/messages/create', 'MessagesController@create');
-Route::post('/messages', 'MessagesController@store');
+Route::resource('messages', 'MessagesController');
+
+Route::resource('users', 'UsersController', ['only' => array('index', 'show')]);
+Route::get('/users/{id}/given', 'UsersController@given');
+
+Route::resource('teams', 'TeamsController');
+Route::get('/teams/{id}/join', 'TeamsController@join');
+// Route::post('/teams/{id}/join', 'TeamsController@join');
+// Route::get('/teams/{id}/joined', 'TeamsController@joined');
+Route::post('/teams/{id}/joined', 'TeamsController@joined');
 
 Route::auth();
 // Auth::routes();
 Route::get('logout', 'Auth\LoginController@logout')->name('logout');
-
-// Route::get('/users', 'UsersController@index');
-// Route::get('/users/create', 'UsersController@create');
-// Route::post('/users', 'UsersController@store');
-//
-// Route::get('/teams', 'TeamsController@index');
 
 Route::get('/home', 'HomeController@index')->name('home');

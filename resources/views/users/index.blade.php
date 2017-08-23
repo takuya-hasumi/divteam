@@ -1,5 +1,13 @@
 @extends('layout')
 
 @section('content')
-  <h2>My first laravel web service.</h2>
+  <div class="contents row" >
+    <h2>ユーザ一覧画面</h2>
+    @foreach($users as $user)
+      <div class="content_post">
+        <p><a href="/users/{{ $user->id }}">{{ $user->name }}</a></p>
+      </div>
+    @endforeach
+    {{ $users->render() }}
+  </div>
 @endsection
