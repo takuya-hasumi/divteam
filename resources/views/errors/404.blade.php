@@ -2,8 +2,6 @@
 
 @section('content')
 <div class="contents row">
-  <div class="container">
-    
-  </div>
+  <h2>404 error</h2>
 </div>
 @endsection

@@ -26,3 +26,29 @@ footer li::after {
 button {
   background-color: #fff;
 }
+dl dd:last-child {
+  float: right;
+}
+dl dd::after, .clearfix::after {
+  clear: both;
+  display: block;
+  content: "";
+  height: 0;
+}
+dl dd span {
+  display: block;
+  font-size: 12px;
+  text-align: right;
+}
+.teams-head h3 {
+  float: right;
+}
+form input[type=checkbox] {
+  width: auto;
+}
+.team-member label {
+  display: block;
+}
+p.messageforme {
+  text-align: right;
+}

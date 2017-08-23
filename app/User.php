@@ -2,15 +2,9 @@
 
 namespace App;
 
-// use Illuminate\Database\Eloquent\Model;
-
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
-// class User extends Model
-// {
-//     protected $fillable = array('name', 'email', 'password', 'remember_token', 'created_at', 'updated_at');
-// }
+use App\Message;
 
 class User extends Authenticatable
 {
@@ -22,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','user_id', 'points'
     ];
 
     /**
@@ -33,4 +27,9 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function messages()
+    {
+      return $this->hasMany(Message::class);
+    }
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMessagesTable extends Migration
+class CreatePointsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,12 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::create('messages', function (Blueprint $table) {
-            $table->increments('message_id');
+        Schema::create('points', function (Blueprint $table) {
+            $table->increments('id');
             $table->integer('user_id');
-            $table->text('user_name');
-            $table->text('who_name');
+            $table->integer('who_id');
             $table->integer('point');
-            $table->string('message');
-            $table->timestamps('date');
+            $table->timestamps();
         });
     }
 
@@ -31,6 +29,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('messages');
+        Schema::dropIfExists('points');
     }
 }

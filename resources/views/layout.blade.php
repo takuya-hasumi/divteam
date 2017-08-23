@@ -9,14 +9,26 @@
   <meta name="description" content="">
   <link rel="stylesheet" href="/css/style.css">
   <link rel="stylesheet" href="/css/user.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script type="text/javascript" src="/js/function.js"></script>
 </head>
 <body>
   <header class="header">
     <div class="header__bar row">
-      <h1 class="grid-6"><a href="/">DivTeam</h1>
+      <h1 class="grid-6"><a href="/">DivTeam</a></h1>
       @if (Auth::check())
         <div class="user_nav grid-6">
-          <a href="/logout">ログアウト</a>
+          <span>
+            {{ Auth::user()->name }}
+            <ul class="user__info">
+              <li>
+                <a href="/users/{{ Auth::user()->id }}">マイページ</a>
+                <a href="/users">ユーザ一覧</a>
+                <a href="/teams">チーム一覧</a>
+                <a href="/logout">ログアウト</a>
+              </li>
+            </ul>
+          </span>
           <a href="/messages/create" class="post">投稿する</a>
         </div>
       @else
